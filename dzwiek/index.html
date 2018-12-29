@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="./audiosynth.js"></script>
+</head>
+<body>
+
+<h1>ELO MORDY</h1>
+
+
+
+
+<script>
+
+window.onload = function() {
+  document.querySelector('button').addEventListener('click', function() {
+
+    //Synth.generate(sound, note, octave, duration);
+    var piano = Synth.createInstrument('edm');
+    //piano.play('C', 4, 2); // plays C4 for 2s using the 'piano' sound profile
+
+    var nutes = ['D', 'D', 'E', 'C', 'F' , 'B' ,'A'];
+
+    function playNute(x) {
+      setTimeout(function(){
+        piano.play(nutes[x], 2, 2)
+      }, x*2000);
+    }
+
+    for (var i = 0; i < nutes.length; i++) {
+      playNute(i);
+    }
+  });
+}
+
+
+</script>
+
+<script>
+	function nuty(){
+		Synth.play(3, 'D', 3,2)
+	}
+</script>
+<button type="button" onclick="function()">Try it</button>
+</body>
+</html> 
