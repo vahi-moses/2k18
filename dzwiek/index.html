@@ -15,15 +15,15 @@
 window.onload = function() {
   document.querySelector('button').addEventListener('click', function() {
 
-    //Synth.generate(sound, note, octave, duration);
+    
     var piano = Synth.createInstrument('edm');
-    //piano.play('C', 4, 2); // plays C4 for 2s using the 'piano' sound profile
+    
 
-    var nutes = ['D', 'D', 'E', 'C', 'F' , 'B' ,'A'];
+    var nutes = ['D', 'B', 'E', 'C', 'F' , 'B' ,'A','G'];
 
     function playNute(x) {
       setTimeout(function(){
-        piano.play(nutes[x], 2, 2)
+        piano.play(nutes[x], 1, 3)
       }, x*2000);
     }
 
