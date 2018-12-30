@@ -347,4 +347,32 @@ Synth.loadSoundProfile({
 				)
 		);
 	}
+},
+{
+  name: 'sedm',
+  attack: function() { return 0.002; },
+  dampen: function() { return 1; },
+  wave: function(i, sampleRate, frequency) {
+    var base = this.modulate[8];
+    var mod = this.modulate.slice(1);
+    return mod[7](
+      i,
+      sampleRate,
+      frequency,
+      mod[5](
+        i,
+        sampleRate,
+        frequency,
+        Math.pow(base(i, sampleRate, frequency, 0), 3) +
+          Math.pow(base(i, sampleRate, frequency, 0.5), 5) +
+          Math.pow(base(i, sampleRate, frequency, 1), 7)
+      ) +
+        mod[1](
+          i,
+          sampleRate,
+          frequency,
+          base(i, sampleRate, frequency, 1.75)
+        )
+    );
+  }
 });
